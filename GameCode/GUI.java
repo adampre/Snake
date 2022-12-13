@@ -12,7 +12,7 @@ public class GUI extends JFrame
         this.setBounds(0, 0, 1000, 1000);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        gamePanel = new GamePanel(800, 800);
+        gamePanel = new GamePanel(this.getWidth() - 200, this.getHeight() - 200);
         this.add(gamePanel, BorderLayout.CENTER);
         this.addKeyListener(gamePanel);
     }

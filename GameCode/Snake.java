@@ -8,10 +8,12 @@ public class Snake
 
     public String direction; 
 
-    public Snake(Point position, int startingSize)
+    public Snake(Point position, int initialSize, String initialDirection)
     {
         this.position = position;
 
-        this.size = startingSize;
+        this.size = initialSize;
+
+        this.direction = initialDirection;
     }
 }
