@@ -14,7 +14,7 @@ public class GUI extends JFrame implements ActionListener
     {
         this.setTitle("Snake");
         this.setLayout(new BorderLayout());
-        this.setBounds(0, 0, 1000, 1000);
+        this.setBounds(0, 0, 500, 500);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         gamePanel = new GamePanel(this.getWidth() - 50, this.getHeight() - 50);
