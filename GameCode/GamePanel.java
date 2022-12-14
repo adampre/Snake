@@ -37,9 +37,11 @@ public class GamePanel extends JPanel implements KeyListener
 
     private void drawSnake(Graphics g)
     {
-        for(int i = 0; i < snake.bodyParts.size(); i++)
+        g.setColor(Color.WHITE);
+
+        for(int i = 0; i < snake.body.size(); i++)
         {
-            g.fillRect(snake.bodyParts.get(i).x, snake.bodyParts.get(i).y, snake.boxDimensions, snake.boxDimensions);
+            g.fillRect(snake.body.get(i).position.x, snake.body.get(i).position.y, snake.boxDimensions, snake.boxDimensions);
         }
     }
 
@@ -58,41 +60,7 @@ public class GamePanel extends JPanel implements KeyListener
 
     private boolean isGameOver()
     {
-        switch(snake.direction)
-        {
-            case Up:
-            if(snake.bodyParts.get(0).y <= 0)
-            {
-                return true;
-            }
-            break;
-
-            case Left:
-            if(snake.bodyParts.get(0).x <= 0)
-            {
-                return true;
-            }
-            break;
-
-            case Right: 
-            if(snake.bodyParts.get(0).x >= dimension)
-            {
-                return true;
-            }
-            break;
-
-            case Down: 
-            if(snake.bodyParts.get(0).y >= dimension)
-            {
-                return true;
-            }
-            break;
-        }
-
-        for(int i = 1; i < snake.bodyParts.size(); i++)
-        {
-            if(snake.bodyParts.get(0).equals(snake.bodyParts.get(i))) return true;
-        }
+        
 
         return false;
     }
@@ -101,40 +69,36 @@ public class GamePanel extends JPanel implements KeyListener
     {
         if(isGameOver()) 
         {
-            JOptionPane.showMessageDialog(null, "Game over. Your score was " + snake.bodyParts.size() + "!");
+            JOptionPane.showMessageDialog(null, "Game over. Your score was " + snake.body.size() + "!");
 
             System.exit(0);
         }
 
-        switch(snake.direction)
+        for(int i = snake.body.size() - 1; i >= 0; i--)
         {
-            case Up:   
-            for(int i = 0; i < snake.bodyParts.size(); i++)
+            if(i > 0)
             {
-                snake.bodyParts.get(i).y -= snake.boxDimensions;
+                snake.body.get(i).direction = snake.body.get(i - 1).direction;
             }
-            break; 
 
-            case Left:
-            for(int i = 0; i < snake.bodyParts.size(); i++)
+            switch(snake.body.get(i).direction)
             {
-                snake.bodyParts.get(i).x -= snake.boxDimensions;
-            }
-            break;
+                case Up: 
+                snake.body.get(i).position.y -= snake.boxDimensions;
+                break;
 
-            case Right:
-            for(int i = 0; i < snake.bodyParts.size(); i++)
-            {
-                snake.bodyParts.get(i).x += snake.boxDimensions;
-            }
-            break;
+                case Left: 
+                snake.body.get(i).position.x -= snake.boxDimensions;
+                break;
 
-            case Down:
-            for(int i = 0; i < snake.bodyParts.size(); i++)
-            {
-                snake.bodyParts.get(i).y += snake.boxDimensions;
+                case Right: 
+                snake.body.get(i).position.x += snake.boxDimensions;
+                break;
+
+                case Down: 
+                snake.body.get(i).position.y += snake.boxDimensions;
+                break;
             }
-            break;
         }
 
         repaint();
@@ -152,19 +116,19 @@ public class GamePanel extends JPanel implements KeyListener
         switch(e.getKeyCode())
         {
             case KeyEvent.VK_UP:
-            snake.direction = Direction.Up;
+            snake.body.get(0).direction = Direction.Up;
             break;
 
             case KeyEvent.VK_LEFT:
-            snake.direction = Direction.Left;
+            snake.body.get(0).direction = Direction.Left;
             break;
 
             case KeyEvent.VK_RIGHT:
-            snake.direction = Direction.Right;
+            snake.body.get(0).direction = Direction.Right;
             break;
 
             case KeyEvent.VK_DOWN:
-            snake.direction = Direction.Down;
+            snake.body.get(0).direction = Direction.Down;
         }  
     }
 
