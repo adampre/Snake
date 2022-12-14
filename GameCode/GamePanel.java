@@ -60,7 +60,20 @@ public class GamePanel extends JPanel implements KeyListener
 
     private boolean isGameOver()
     {
-        
+        // switch(snake.body.get(0).direction)
+        // {
+        //     case Up: 
+        //         break;
+
+        //     case Down:
+        //         break;
+
+        //     case Left:
+        //         break;
+
+        //     case Right:
+        //         break;            
+        // }
 
         return false;
     }
@@ -84,20 +97,20 @@ public class GamePanel extends JPanel implements KeyListener
             switch(snake.body.get(i).direction)
             {
                 case Up: 
-                snake.body.get(i).position.y -= snake.boxDimensions;
-                break;
+                    snake.body.get(i).position.y -= snake.boxDimensions;
+                    break;
 
                 case Left: 
-                snake.body.get(i).position.x -= snake.boxDimensions;
-                break;
+                    snake.body.get(i).position.x -= snake.boxDimensions;
+                    break;
 
                 case Right: 
-                snake.body.get(i).position.x += snake.boxDimensions;
-                break;
+                    snake.body.get(i).position.x += snake.boxDimensions;
+                    break;
 
                 case Down: 
-                snake.body.get(i).position.y += snake.boxDimensions;
-                break;
+                    snake.body.get(i).position.y += snake.boxDimensions;
+                    break;
             }
         }
 
@@ -116,19 +129,20 @@ public class GamePanel extends JPanel implements KeyListener
         switch(e.getKeyCode())
         {
             case KeyEvent.VK_UP:
-            snake.body.get(0).direction = Direction.Up;
-            break;
+                snake.body.get(0).direction = Direction.Up;
+                break;
 
             case KeyEvent.VK_LEFT:
-            snake.body.get(0).direction = Direction.Left;
-            break;
+                snake.body.get(0).direction = Direction.Left;
+                break;
 
             case KeyEvent.VK_RIGHT:
-            snake.body.get(0).direction = Direction.Right;
-            break;
+                snake.body.get(0).direction = Direction.Right;
+                break;
 
             case KeyEvent.VK_DOWN:
-            snake.body.get(0).direction = Direction.Down;
+                snake.body.get(0).direction = Direction.Down;
+                break;
         }  
     }
 
