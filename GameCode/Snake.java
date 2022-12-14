@@ -19,4 +19,26 @@ public class Snake
             body.add(new BodyPart(new Point(position.x - (i * boxDimensions), position.y), initialDirection));
         }
     }
+
+    public void addBodyPart()
+    {
+        switch(body.get(body.size() - 1).direction)
+        {
+            case Up:
+                body.add(new BodyPart(new Point(body.get(body.size() - 1).position.x, body.get(body.size() - 1).position.y + boxDimensions), body.get(body.size() - 1).direction));
+                return;
+            
+            case Left:
+                body.add(new BodyPart(new Point(body.get(body.size() - 1).position.x + boxDimensions, body.get(body.size() - 1).position.y), body.get(body.size() - 1).direction));
+                return;
+
+            case Right:
+                body.add(new BodyPart(new Point(body.get(body.size() - 1).position.x - boxDimensions, body.get(body.size() - 1).position.y), body.get(body.size() - 1).direction));
+                return;
+
+            case Down:
+                body.add(new BodyPart(new Point(body.get(body.size() - 1).position.x, body.get(body.size() - 1).position.y - boxDimensions), body.get(body.size() - 1).direction));
+                return;
+        }
+    }
 }

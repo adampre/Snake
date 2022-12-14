@@ -21,7 +21,7 @@ public class GUI extends JFrame implements ActionListener
         this.add(gamePanel, BorderLayout.CENTER);
         this.addKeyListener(gamePanel);
 
-        timer = new Timer(50, this);
+        timer = new Timer(70, this);
     }
 
     public void gameInit()
