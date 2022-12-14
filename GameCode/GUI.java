@@ -1,9 +1,14 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
-public class GUI extends JFrame 
+import javax.swing.Timer;
+
+public class GUI extends JFrame implements ActionListener
 {
     private GamePanel gamePanel; 
+
+    private Timer timer;
 
     public GUI()
     {
@@ -12,13 +17,23 @@ public class GUI extends JFrame
         this.setBounds(0, 0, 1000, 1000);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        gamePanel = new GamePanel(this.getWidth() - 200, this.getHeight() - 200);
+        gamePanel = new GamePanel(this.getWidth() - 50, this.getHeight() - 50);
         this.add(gamePanel, BorderLayout.CENTER);
         this.addKeyListener(gamePanel);
+
+        timer = new Timer(50, this);
     }
 
     public void gameInit()
     {
         this.setVisible(true);
+
+        timer.start();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) 
+    {
+        gamePanel.update();
     }
 }
