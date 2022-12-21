@@ -4,8 +4,7 @@ import javax.swing.*;
 
 import java.util.Random;
 
-import SnakeCode.Snake;
-import SnakeCode.Direction;
+import SnakeCode.*;
 
 public class GamePanel extends JPanel implements KeyListener
 {
@@ -19,7 +18,7 @@ public class GamePanel extends JPanel implements KeyListener
     private int boxDimensions;
 
     public Snake snake;
-    private Point fruit;
+    public Point fruit;
 
     public GamePanel(int width, int height)
     {

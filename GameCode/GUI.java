@@ -10,7 +10,7 @@ public class GUI extends JFrame implements ActionListener
 {
     // * TRUE MEANS THE AI WILL PLAY
     // * FALSE MEANS YOU HAVE TO PLAY
-    private final boolean doAI = false;
+    private final boolean doAI = true;
 
     private GamePanel gamePanel; 
 
@@ -42,7 +42,7 @@ public class GUI extends JFrame implements ActionListener
     {
         if(doAI)
         {
-            gamePanel.snake.body.get(0).direction = AI.getDirection();
+            gamePanel.snake.body.get(0).direction = AI.getDirection(gamePanel.snake, gamePanel.fruit);
         }
 
         gamePanel.update();
