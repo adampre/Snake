@@ -42,7 +42,7 @@ public class GUI extends JFrame implements ActionListener
     {
         if(doAI)
         {
-            gamePanel.snake.body.get(0).direction = AI.getDirection(gamePanel.snake, gamePanel.fruit, gamePanel.numberOfBoxes);
+            gamePanel.snake.body.get(0).direction = AI.getDirection(gamePanel.snake, gamePanel.fruit, gamePanel.dimension);
         }
 
         gamePanel.update();

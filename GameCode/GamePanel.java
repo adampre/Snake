@@ -13,8 +13,8 @@ public class GamePanel extends JPanel implements KeyListener
     // * SNAKE WILL NOT DISPLAY IF initialSize IS TOO LARGE
     private final int initialSize = 5;
 
-    private int dimension;
-    public int numberOfBoxes;
+    public int dimension;
+    private int numberOfBoxes;
     private int boxDimensions;
 
     public Snake snake;
@@ -67,10 +67,10 @@ public class GamePanel extends JPanel implements KeyListener
 
     private void drawSnake(Graphics g)
     {
-        g.setColor(Color.WHITE);
-
         for(int i = 0; i < snake.body.size(); i++)
         {
+            g.setColor((i != 0) ? Color.WHITE : Color.BLUE);
+
             g.fillRect(snake.body.get(i).position.x + 1, snake.body.get(i).position.y, boxDimensions, boxDimensions + 1);
         }
     }
@@ -171,6 +171,8 @@ public class GamePanel extends JPanel implements KeyListener
 
         if(isGameOver()) 
         {
+            System.out.println(snake.body.get(0).direction);
+
             JOptionPane.showMessageDialog(null, "Game over. Your score was " + snake.body.size() + "!");
 
             System.exit(0);
