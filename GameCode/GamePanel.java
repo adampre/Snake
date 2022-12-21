@@ -14,7 +14,7 @@ public class GamePanel extends JPanel implements KeyListener
     private final int initialSize = 5;
 
     private int dimension;
-    private int numberOfBoxes;
+    public int numberOfBoxes;
     private int boxDimensions;
 
     public Snake snake;
