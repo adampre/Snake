@@ -42,4 +42,17 @@ public class Snake
                 return;
         }
     }
+
+    public boolean containsPoint(Point point)
+    {
+        for(int i = 0; i < body.size(); i++)
+        {
+            if(body.get(i).position.equals(point))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
