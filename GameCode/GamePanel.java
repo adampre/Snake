@@ -11,11 +11,14 @@ public class GamePanel extends JPanel implements KeyListener
 {
     private final Random RANDOM = new Random();
 
+    // * SNAKE WILL NOT DISPLAY IF initialSize IS TOO LARGE
+    private final int initialSize = 5;
+
     private int dimension;
     private int numberOfBoxes;
     private int boxDimensions;
 
-    private Snake snake;
+    public Snake snake;
     private Point fruit;
 
     public GamePanel(int width, int height)
@@ -33,7 +36,7 @@ public class GamePanel extends JPanel implements KeyListener
         this.numberOfBoxes = dimension / 30;
         boxDimensions = (dimension / numberOfBoxes);
 
-        snake = new Snake(new Point(100, 100), 5, Direction.Right, (dimension / numberOfBoxes));
+        snake = new Snake(new Point(initialSize * boxDimensions + 10, initialSize * boxDimensions + 10), initialSize, Direction.Right, (dimension / numberOfBoxes));
 
         newFruit();
 

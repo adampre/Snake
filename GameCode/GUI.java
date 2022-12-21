@@ -4,8 +4,14 @@ import java.awt.event.*;
 
 import javax.swing.Timer;
 
+import AICode.AI;
+
 public class GUI extends JFrame implements ActionListener
 {
+    // * TRUE MEANS THE AI WILL PLAY
+    // * FALSE MEANS YOU HAVE TO PLAY
+    private final boolean doAI = false;
+
     private GamePanel gamePanel; 
 
     private Timer timer;
@@ -34,6 +40,11 @@ public class GUI extends JFrame implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {
+        if(doAI)
+        {
+            gamePanel.snake.body.get(0).direction = AI.getDirection();
+        }
+
         gamePanel.update();
     }
 }
