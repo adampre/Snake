@@ -1,3 +1,4 @@
+package SnakeCode;
 import java.awt.Point;
 
 import java.util.ArrayList;

@@ -4,6 +4,9 @@ import javax.swing.*;
 
 import java.util.Random;
 
+import SnakeCode.Snake;
+import SnakeCode.Direction;
+
 public class GamePanel extends JPanel implements KeyListener
 {
     private final Random RANDOM = new Random();
@@ -48,7 +51,7 @@ public class GamePanel extends JPanel implements KeyListener
     {
         g.setColor(Color.RED);
 
-        g.fillRect(fruit.x + 1, fruit.y, snake.boxDimensions, snake.boxDimensions);
+        g.fillRect(fruit.x, fruit.y, snake.boxDimensions, snake.boxDimensions);
     }   
 
     private void drawSnake(Graphics g)
@@ -57,7 +60,7 @@ public class GamePanel extends JPanel implements KeyListener
 
         for(int i = 0; i < snake.body.size(); i++)
         {
-            g.fillRect(snake.body.get(i).position.x + 1, snake.body.get(i).position.y, snake.boxDimensions, snake.boxDimensions + 1);
+            g.fillRect(snake.body.get(i).position.x, snake.body.get(i).position.y, snake.boxDimensions, snake.boxDimensions);
         }
     }
 

@@ -1,3 +1,4 @@
+package SnakeCode;
 import java.awt.Point;
 
 public class BodyPart 

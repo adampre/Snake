@@ -1,3 +1,5 @@
+package SnakeCode;
+
 public enum Direction 
 {
     Up, 
