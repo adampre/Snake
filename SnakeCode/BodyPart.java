@@ -11,4 +11,10 @@ public class BodyPart
         this.position = position;
         this.direction = direction;
     }
+
+    public BodyPart(Point position)
+    {
+        this.position = position;
+        this.direction = null;
+    }
 }
